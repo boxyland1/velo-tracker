@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vélo Tracker</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <!-- Leaflet CSS pour la carte -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <!-- PWA -->
+    <link rel="manifest" href="/static/manifest.json">
+    <meta name="theme-color" content="#667eea">
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/static/sw.js');
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>🚴 Vélo Tracker</h1>
+        
+        <div class="status" id="status">
+            <p>Prêt à démarrer</p>
+        </div>
+
+        <!-- CARTE -->
+        <div id="map" class="map-container"></div>
+
+        <div class="stats">
+            <div class="stat-box">
+                <h3>Distance</h3>
+                <p id="distance">0.00 km</p>
+            </div>
+            <div class="stat-box">
+                <h3>Vitesse</h3>
+                <p id="vitesse">0.0 km/h</p>
+            </div>
+            <div class="stat-box">
+                <h3>Durée</h3>
+                <p id="duree">00:00:00</p>
+            </div>
+            <div class="stat-box">
+                <h3>Dénivelé</h3>
+                <p id="denivele">0 m</p>
+            </div>
+            <div class="stat-box">
+                <h3>Calories</h3>
+                <p id="calories">0 kcal</p>
+            </div>
+            <div class="stat-box">
+                <h3>Vitesse Max</h3>
+                <p id="vitesse_max">0.0 km/h</p>
+            </div>
+        </div>
+
+        <div class="controls">
+    <button id="startBtn" class="btn btn-start">Démarrer</button>
+    <button id="stopBtn" class="btn btn-stop" disabled>Arrêter</button>
+    <button id="historiqueBtn" class="btn btn-historique">📊 Historique</button>
+        </div>
+
+        <div class="gps-info">
+            <p>Latitude: <span id="lat">-</span></p>
+            <p>Longitude: <span id="lon">-</span></p>
+            <p>Altitude: <span id="alt">-</span> m</p>
+            <p>Précision: <span id="accuracy">-</span> m</p>
+        </div>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>

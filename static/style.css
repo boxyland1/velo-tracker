@@ -1,0 +1,190 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.status {
+    background: #f0f0f0;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(105px, 1fr));
+    gap: 12px;
+    margin: 20px 0;
+    padding: 0 8px;
+}
+
+.stat-box {
+    border-radius: 16px;
+    text-align: center;
+    padding: 14px 6px;
+    min-width: 0;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    border: 2px solid rgba(255,255,255,0.3);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+#distance { background: linear-gradient(135deg, #FF6B6B, #FF8E8E); color: white; }
+#vitesse { background: linear-gradient(135deg, #4ECDC4, #44A08D); color: white; }
+#duree { background: linear-gradient(135deg, #45B7D1, #96C93D); color: white; }
+#denivele { background: linear-gradient(135deg, #FECA57, #FF9FF3); color: #333; }
+#calories { background: linear-gradient(135deg, #FF9FF3, #FECA57); color: #333; }
+#vitesse_max { background: linear-gradient(135deg, #54A0FF, #5F27CD); color: white; }
+
+.stat-box h3 {
+    font-size: 11px;
+    margin: 0 0 4px 0;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    opacity: 0.9;
+}
+
+.stat-box p {
+    font-size: 18px;
+    font-weight: 800;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    min-height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.stat-box:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,0.25); }
+@media (max-width: 768px) {
+    .stats { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+    .stat-box p { font-size: 16px; }
+}
+
+.controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.btn {
+    flex: 1;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.btn:active {
+    transform: scale(0.95);
+}
+
+.btn-start {
+    background: #10b981;
+    color: white;
+}
+
+.btn-stop {
+    background: #ef4444;
+    color: white;
+}
+
+.btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+.gps-info {
+    background: #f0f0f0;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 12px;
+    color: #666;
+}
+
+.gps-info p {
+    margin: 5px 0;
+}
+/* Carte Leaflet */
+.map-container {
+    height: 400px;  /* Hauteur fixe */
+    width: 100%;
+    margin: 20px 0;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .map-container {
+        height: 300px;
+    }
+}
+
+/* Stats responsive */
+.stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.stat-box {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 15px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}.btn {
+    padding: 12px 24px;
+    margin: 5px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: bold;
+}
+
+.btn-start { background: linear-gradient(45deg, #4CAF50, #45a049); color: white; }
+.btn-stop { background: linear-gradient(45deg, #f44336, #da190b); color: white; }
+.btn-historique { background: linear-gradient(45deg, #2196F3, #0b7dda); color: white; }
+
+.btn:hover { transform: scale(1.05); box-shadow: 0 8px 25px rgba(0,0,0,0.3); }
+.btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
