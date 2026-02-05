@@ -70,8 +70,14 @@ function updatePosition(position) {
 }
 
 function errorGPS(error) {
-  status.textContent = `❌ GPS ${error.code}`;
-  console.error(error);
+  let code = error.code;
+  let msg = `GPS ERR ${code} `;
+  if (code===1) msg += 'Permission → Tel/site/Autoriser';
+  if (code===2) msg += 'Signal → Dehors ciel ouvert';
+  if (code===3) msg += 'Timeout → GPS lent';
+  status.textContent = msg;
+  alert(msg + ' Code:' + code);
+  console.error('GPS:', error.message);
 }
 
 function startTracking() {
